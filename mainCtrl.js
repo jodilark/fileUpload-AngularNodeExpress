@@ -7,8 +7,10 @@ angular.module("app").controller('mainCtrl', function ($scope, mainSrv, Upload, 
         if (vm.upload_form.file.$valid && vm.file) { //check if from is valid
             mainSrv.upload(vm.file).then(response => {
                 //now send the other form data including the returned url
-                mainSrv.item({"title": vm.text, "url": response})
-                $scope.newImg = response
+                mainSrv.item({"title": vm.text, "url": response.url}).then(newResponse => {
+                    $scope.newImg = newResponse.data.url
+                    alert(`${response.originalName} was successfully uploaded!`)
+                })
             }); //call upload function
         }        
     }

@@ -40,4 +40,9 @@ app.post('/upload', (req, res) => {
     })
 })
 
+app.post('/api/items', (req, res) => {
+    console.log(req.body)
+    res.status(200).send({message:'got the object, good job!!!', url:req.body.url})
+})
+
 app.listen(port, _ => console.log(`listening on port ${port}`))

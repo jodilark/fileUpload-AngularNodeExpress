@@ -15,7 +15,7 @@
 
     <form name="up.upload_form">
         <input type="text" ng-model="up.text" name="text" required>
-        <input type="file" ngf-select ng-model="up.file" name="file" ngf-pattern="'image/*'" accept="image/*" ngf-max-size="20MB">        Image thumbnail: <img style="width: 100px;" ngf-thumbnail="up.file || '/thumb.jpg'" />
+        <input type="file" ngf-select ng-model="up.file" name="file" ngf-pattern="'image/*'" accept="image/*" ngf-max-size="20MB"><span ng-if="up.file !== undefined"><img style="width: 100px;" ngf-thumbnail="up.file" /></span><br>
         <button type="submit" ng-click="up.submit()">submit</button>
     </form>
     <div ng-if="newImg !== undefined">
